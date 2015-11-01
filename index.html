@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" , content="IE=edge, chrome=1">
+	<title>MILE Web | Lesson Maker</title>
+	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+	<link rel="stylesheet" href="assets/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet"href="assets/css/app.css"/> 
+</head>
+<body>
+	
+	
+	
+	<script type="text/template" id="item-template">
+		<div class="course-item col-md-6 col-md-offset-3 panel panel-default">
+			<div class="panel-heading text-center">
+				<%= id %>
+				
+					<div class="btn-group">
+			  			<button type="button" class="edit-button btn btn-info">Edit</button>
+					</div>
+					<div class="btn-group">
+						<button type="button" class="show-button btn btn-info">Show/Collapse</button>
+					</div>
+				
+				
+			</div>
+			<div class="panel-body" style="display:<%= show?'block':'none'%>">
+
+				<div class="dropdown input-group">
+					<button class="btn btn-default dropdown-toggle menu-dropdown" type="button" id="dropdownMenu<%=id%>" data-type="<%=type%>"data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						<%= type%>
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenu<%=id%>">
+						<% _.each(options, function(o){ %>
+							<li><a href="#"><%=o%></a></li>
+						<%})%>
+					</ul>
+					
+				</div>
+				<div class="input-group">
+	  				<span class="input-group-addon" id="basic-addon1">Content</span>
+	 		 		<input type="text" class="form-control"  aria-describedby="basic-addon1"<%= readonly?'readonly':''%> value=<%= content%>>
+				</div>
+
+			</div>
+			
+		</div>
+	</script>
+	<script type="text/template" id="stats-template">
+		<ul class="nav nav-pills">
+            <li><a href="#">Questions <span class="badge"><%=stats.question%></span></a></li>
+            <li><a href="#">Texts <span class="badge"><%=stats.texts%></span></a></li>
+            <li><a href="#">Graphs <span class="badge"><%=stats.graphs%></span></a></li>
+        </ul>
+	</script>
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="assets/dist/js/bootstrap.js"></script>
+	<script src="js/lib/underscore-min.js"></script>
+	<script src="js/lib/backbone-min.js"></script>
+	<script src="js/lib/backbone.localStorage.js"></script>
+	<script src="js/models/brick.js"></script>
+	<script src="js/collections/lesson.js"></script>
+	<script src="js/views/brick.js"></script>
+	<script src="js/views/app.js"></script>
+	<script src="js/app.js"></script>
+	
+
+	
+	<section id="milewebapp">
+		<nav class="navbar navbar-default">
+	  		<div class="container-fluid">
+	    		<div class="navbar-header">
+	     		 	<a class="navbar-brand" href="#">
+	        			<img alt="Brand" src="assets/icon.png" height="50px" width="50px">
+	      			</a>
+	      			<h1 class="navbar-text">MILE Lesson Maker</h1>
+
+	      			<!--div class="input-group navbar-form lesson-name">
+		  					<span class="input-group-addon" id="basic-addon1">@</span>
+		  					<input type="text" class="form-control col-md-6" placeholder="Lesson ka naamkaran karein" aria-describedby="basic-addon1">
+					</div-->
+	    		</div>
+	    		<div class="nav navbar-nav">
+	    			<button type="button" class="btn btn-default navbar-btn clear-lesson">Clear Lesson</button>
+	    			<a type="button" class="btn btn-default navbar-btn download-lesson">Download Lesson</a>
+	    		</div>
+	    		
+	  		</div>
+		</nav>
+		<section id="main">
+			<!--div class="btn-group">
+				<button type="button" id="show-all-button" class="btn btn-info">Show All</button>
+				
+			</div>
+			<div class="btn-group">
+				<button type="button" id="collapse-all-button"class="btn btn-info">Collapse All</button>
+			</div-->
+			<div class="input-course-item col-md-6 col-md-offset-3 panel panel-default">
+				<div class="panel-body">
+
+					<div class="dropdown input-group">
+						<button type="button" id="dropdownMenuMain" class="btn btn-default">Select Lesson Type</button>
+						<button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu main-dropdown" aria-labelledby="dropdownMenuMain">
+							<li><a href="#">Line and a Pause</a></li>
+							<li><a href="#">Input</a></li>
+							<li><a href="#">Number</a></li>
+							<li><a href="#">No pause in line</a></li>
+							<li><a href="#">Graph</a></li>
+							<li><a href="#">Video Links</a></li>
+							<li><a href="#">2 Variable Array</a></li>
+							<li><a href="#">Shaded Area Pair</a></li>
+						</ul>
+					</div>
+					<div class="input-group">
+		  				<span class="input-group-addon" id="basic-addon1">Content</span>
+		 		 		<input type="text" class="form-control input-lesson-content"  aria-describedby="basic-addon1">
+					</div>
+					<div class="input-group">
+		  				<button type="button" id="submit-new-brick" class="btn btn-info">Submit</button>
+					</div>
+					<div class="alert alert-warning" role="alert" style="display:none"></div>
+				</div>
+			</div>
+			
+			<div id="lesson-list">
+				
+			</div>
+		</section>
+	</section>
+</body>
+</html>

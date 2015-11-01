@@ -1,0 +1,30 @@
+body{
+	margin: 0px 20px;
+}
+
+h1{
+	padding: 8px;
+}
+.ms-Icon{
+	padding-right:10px;
+	font-size: 20px
+}
+.ms-ContextualMenu.is-open  {
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .ms-Dialog {
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .ms-NavBar-item .ms-ContextualMenu {
+      position: absolute;
+    }
+    .ms-CommandBar .ms-ContextualMenu {
+      position: absolute;
+    }
+
+.dropdown{
+  position: relative;
+  padding-bottom: 10px;
+}
