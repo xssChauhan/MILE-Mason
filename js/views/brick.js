@@ -23,8 +23,16 @@ app.BrickView = Backbone.View.extend({
 	},
 	showBrick : function(){
 		this.model.toggleShow();
+		showGlyphicon  =this.$(".show-button").find("span.glyphicon");
+		var classes = showGlyphicon.attr('class').split(/\s+/);
+		if(classes[1] == 'glyphicon-eye-open'){
+			showGlyphicon.removeClass("glyphicon-eye-open").addClass("glyphicon-eye-close");
+		}
+		else if(classes[1] == 'glyphicon-eye-close'){
+			showGlyphicon.removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
+		}
 		this.$(".panel-body").toggle(500);
-		console.log(this.model.get("show"));
+		//console.log(this.model.get("show"));
 		//console.log(this.$(".panel-body").html());
 
 	},

@@ -11,5 +11,5 @@ $(function(){
 })**/
 
 $(function(){
-	console.log($("#dropdownMenuMain").text())
+	console.log($("#dropdownMenuMain").text());
 })

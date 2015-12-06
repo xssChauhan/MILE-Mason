@@ -35,6 +35,7 @@ app.AppView = Backbone.View.extend({
 	addOne :  function(brick){
 		var view = new app.BrickView({model: brick});
 		$("#lesson-list").append(view.render().el);
+		//console.log(view.render().el.children);
 	},
 	addAll :  function(){
 		this.$("#lesson-list").html('');

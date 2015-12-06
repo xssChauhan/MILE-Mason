@@ -18,13 +18,11 @@
 				<%= id %>
 				
 					<div class="btn-group">
-			  			<button type="button" class="edit-button btn btn-info">Edit</button>
+			  			<button type="button" class="edit-button btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>
 					</div>
 					<div class="btn-group">
-						<button type="button" class="show-button btn btn-info">Show/Collapse</button>
+						<button type="button" class="show-button btn btn-info"><span class="glyphicon <%= !show?'glyphicon-eye-open':'glyphicon-eye-close'%>"></span></button>
 					</div>
-				
-				
 			</div>
 			<div class="panel-body" style="display:<%= show?'block':'none'%>">
 
@@ -38,7 +36,6 @@
 							<li><a href="#"><%=o%></a></li>
 						<%})%>
 					</ul>
-					
 				</div>
 				<div class="input-group">
 	  				<span class="input-group-addon" id="basic-addon1">Content</span>
@@ -73,20 +70,28 @@
 		<nav class="navbar navbar-default">
 	  		<div class="container-fluid">
 	    		<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#testItOut" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button> 
 	     		 	<a class="navbar-brand" href="#">
 	        			<img alt="Brand" src="assets/icon.png" height="50px" width="50px">
 	      			</a>
-	      			<h1 class="navbar-text">MILE Lesson Maker</h1>
+	      			<h1 class="navbar-text">MILE Mason</h1>
 
 	      			<!--div class="input-group navbar-form lesson-name">
 		  					<span class="input-group-addon" id="basic-addon1">@</span>
 		  					<input type="text" class="form-control col-md-6" placeholder="Lesson ka naamkaran karein" aria-describedby="basic-addon1">
 					</div-->
 	    		</div>
-	    		<div class="nav navbar-nav">
-	    			<button type="button" class="btn btn-default navbar-btn clear-lesson">Clear Lesson</button>
-	    			<a type="button" class="btn btn-default navbar-btn download-lesson">Download Lesson</a>
-	    		</div>
+				<div class="collapse navbar-collapse" id="testItOut">
+	    			<ul class="nav navbar-nav">
+	    				<li><button type="button" class="btn btn-warning navbar-btn clear-lesson btn-circle" data-toggle="tooltip" data-placement="bottom" title="Clear Lesson"><i class="glyphicon glyphicon-remove"></i></button></li>
+	    				<li><button type="button" class="btn btn-info navbar-btn download-lesson btn-circle" data-toggle="tooltip" data-placement="bottom" title="Download Lesson"><i class="glyphicon glyphicon-download"></i></button></li>
+	    			</ul>
+				</div>
 	    		
 	  		</div>
 		</nav>
@@ -100,29 +105,35 @@
 			</div-->
 			<div class="input-course-item col-md-6 col-md-offset-3 panel panel-default">
 				<div class="panel-body">
-
-					<div class="dropdown input-group">
-						<button type="button" id="dropdownMenuMain" class="btn btn-default">Select Lesson Type</button>
-						<button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu main-dropdown" aria-labelledby="dropdownMenuMain">
-							<li><a href="#">Line and a Pause</a></li>
-							<li><a href="#">Input</a></li>
-							<li><a href="#">Number</a></li>
-							<li><a href="#">No pause in line</a></li>
-							<li><a href="#">Graph</a></li>
-							<li><a href="#">Video Links</a></li>
-							<li><a href="#">2 Variable Array</a></li>
-							<li><a href="#">Shaded Area Pair</a></li>
-						</ul>
+					<div class="form-group">
+						<div class="dropdown input-group">
+							<button type="button" id="dropdownMenuMain" class="btn btn-default">Select Lesson Type</button>
+							<button class="btn btn-default dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="caret"></span>
+								<span class="sr-only">Toggle dropdown</span>
+							</button>
+							<ul class="dropdown-menu main-dropdown" aria-labelledby="dropdownMenuMain">
+								<li><a href="#">Line and a Pause</a></li>
+								<li><a href="#">Input</a></li>
+								<li><a href="#">Number</a></li>
+								<li><a href="#">No pause in line</a></li>
+								<li><a href="#">Graph</a></li>
+								<li><a href="#">Video Links</a></li>
+								<li><a href="#">2 Variable Array</a></li>
+								<li><a href="#">Shaded Area Pair</a></li>
+							</ul>
+						</div>
 					</div>
-					<div class="input-group">
-		  				<span class="input-group-addon" id="basic-addon1">Content</span>
-		 		 		<input type="text" class="form-control input-lesson-content"  aria-describedby="basic-addon1">
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1">Content</span>
+							<input type="text" class="form-control input-lesson-content"  aria-describedby="basic-addon1">
+						</div>
 					</div>
-					<div class="input-group">
-		  				<button type="button" id="submit-new-brick" class="btn btn-info">Submit</button>
+					<div class="form-group">
+						<div class="input-group">
+		  					<button type="button" id="submit-new-brick" class="btn btn-info">Submit</button>
+						</div>
 					</div>
 					<div class="alert alert-warning" role="alert" style="display:none"></div>
 				</div>
