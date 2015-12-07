@@ -1,7 +1,25 @@
 body{
 	margin: 0px 20px;
 }
-
+body.loading{
+  overflow:hidden;
+}
+body.loading.spinner{
+  display:block;
+}
+.spinner{
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('../ajax-loader.gif') 
+                50% 50% 
+                no-repeat;
+}
 h1{
 	padding: 8px;
 }
@@ -34,16 +52,44 @@ h1{
   padding-right : 0;
 }
 
+.centered-text {
+    text-align:center
+}
+.glyphicon{
+  font-size:21px;
+}
+
 .btn-circle {
   width: 50px;
   height: 50px;
   text-align: center;
-  padding: 15px 15px;
+  padding: 13px 13px;
   font-size: 18px;
   line-height: 1.33;
   border-radius: 35px;
 }
+.btn-small{
+  width:40px;
+  height:40px;
+  text-align:center;
+  padding:7px 0px;
+  font-size:12px;
+  line-height: line-height: 1.428571429;
+  border-radius:22px;
+}
+.row{
+  border-bottom: 1px solid lightgray;
+  margin-top:20px;
+}
 .navbar-nav>li{
   padding-left:10px;
-  padding-top:15px;
+  padding-top:10px;
 }
+#lesson-list{
+  list-style-type : none;
+}
+ul.nav-pills{
+  display: inline-block;
+  margin-left:auto;
+}
+

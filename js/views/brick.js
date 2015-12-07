@@ -2,7 +2,8 @@ var app = app || {};
 var options = ['Line and a Pause','Input', 'Number','No pause in line','Graph','Video Links','2 Variable Array','Shaded Area Pair']
 
 app.BrickView = Backbone.View.extend({
-	tagname : 'li',
+	tagName : 'li',
+	className : 'col-md-4',
 	template :  _.template($("#item-template").html()),
 
 	events : {

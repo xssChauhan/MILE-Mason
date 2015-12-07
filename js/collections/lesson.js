@@ -16,6 +16,12 @@ var Lesson = Backbone.Collection.extend({
 		}
 		return this.last().get('id') + 1;
 
+	},
+	clearLesson : function(){
+		_.chain(this.models).clone().each(function(model){
+			console.log('deleting model'+ model.get('id'));
+			model.destroy();
+		})
 	}
 });
 

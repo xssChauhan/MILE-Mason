@@ -2,7 +2,7 @@ var app = app || {};
 
 app.AppView = Backbone.View.extend({
 	el : "#milewebapp",
-	//statsTemplate :  _.template($("#stats-template").html()),
+	modalTemplate :  _.template($("#modal-template").html()),
 
 	events :{
 		'click #submit-new-brick': 'createOnClick',
@@ -10,7 +10,8 @@ app.AppView = Backbone.View.extend({
 		'click #show-all-button' : 'toggeShowAll',
 		'click .panel-body' : 'HideError',
 		'click .clear-lesson' : 'resetLesson',
-		'click .download-lesson' : 'downloadLesson'
+		'click .download-lesson' : 'downloadLesson',
+		'click .import-lesson' : 'showModal'
 	},
 	initialize :  function(){
 		this.$main = this.$("#main");
@@ -18,8 +19,6 @@ app.AppView = Backbone.View.extend({
 		this.$lessonInputContent = $(".input-lesson-content");
 		this.listenTo(app.Lesson,"add",this.addOne);
 		this.listenTo(app.Lesson, "reset", this.addAll);
-		//this.listenTo(app.Lesson, "all", this.render);
-		
 		app.Lesson.fetch();
 	},
 
@@ -30,12 +29,15 @@ app.AppView = Backbone.View.extend({
 		else{
 			this.$main.html('Get Started');
 		}
+		this.$main.append(this.modalTemplate());
 	},
 
 	addOne :  function(brick){
 		var view = new app.BrickView({model: brick});
-		$("#lesson-list").append(view.render().el);
-		//console.log(view.render().el.children);
+			if(((brick.get('id')-1)%3 == 0)){
+				$("#lesson-list").append('<div class="row"></div>')
+			}
+		$("#lesson-list div.row:last-child").append(view.render().el);
 	},
 	addAll :  function(){
 		this.$("#lesson-list").html('');
@@ -69,9 +71,11 @@ app.AppView = Backbone.View.extend({
 		})
 	},
 	resetLesson : function(){
-		app.Lesson.each(function(model){
+		/**_.chain(app.Lesson.models).clone().each(function(model){
+			console.log('deleting model'+ model.get('id'));
 			model.destroy();
-		});
+		}**/
+		app.Lesson.clearLesson();
 		window.location.reload();
 	},
 	downloadLesson : function(){
@@ -83,6 +87,11 @@ app.AppView = Backbone.View.extend({
 		});
 		
 		
+	},
+	showModal : function(){
+		var modal = new app.modalView();
+		this.$main.append(modal.render().el);
+		modal.show();
 	}
 
 })
