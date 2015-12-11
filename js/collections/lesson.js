@@ -18,10 +18,7 @@ var Lesson = Backbone.Collection.extend({
 
 	},
 	clearLesson : function(){
-		_.chain(this.models).clone().each(function(model){
-			console.log('deleting model'+ model.get('id'));
-			model.destroy();
-		})
+		this.localStorage._clear();
 	}
 });
 

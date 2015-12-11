@@ -37,12 +37,12 @@
 
 				<div class="dropdown input-group">
 					<button class="btn btn-default dropdown-toggle menu-dropdown" type="button" id="dropdownMenu<%=id%>" data-type="<%=type%>"data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-						<%= type%>
+						<%=type%>
 						<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenu<%=id%>">
 						<% _.each(options, function(o){ %>
-							<li><a href="#"><%=o%></a></li>
+							<li><a data="<%=type%>" href="#"><%=o%></a></li>
 						<%})%>
 					</ul>
 				</div>
@@ -51,6 +51,9 @@
 	 		 		<input type="text" class="form-control"  aria-describedby="basic-addon1"<%= readonly?'readonly':''%> value=<%= content%>>
 				</div>
 
+			</div>
+			<div class="panel-footer" style="display:<%= !show?'inline-block':'none'%>;width:100%">
+				<p><span class="badge text-center"><%=type%></span><span class="pull-right"><%=content%></span></p>
 			</div>
 			
 		</div>
@@ -112,7 +115,7 @@
 				<div class="collapse navbar-collapse" id="testItOut">
 	    			<ul class="nav navbar-nav">
 	    				<li><button type="button" class="btn btn-warning navbar-btn clear-lesson btn-circle" data-toggle="tooltip" data-placement="bottom" title="Clear Lesson"><i class="glyphicon glyphicon-trash"></i></button></li>
-	    				<li><button type="button" class="btn btn-info navbar-btn download-lesson btn-circle" data-toggle="tooltip" data-placement="bottom" title="Download Lesson"><i class="glyphicon glyphicon-download-alt"></i></button></li>
+	    				<li><a type="button" class="btn btn-info navbar-btn download-lesson btn-circle" data-toggle="tooltip" data-placement="bottom" title="Download Lesson"><i class="glyphicon glyphicon-download-alt"></i></a></li>
 						<li><button type="button" class="btn btn-info navbar-btn btn-circle import-lesson" data-toggle="modal" data-target="#lessonUpload"><i class="glyphicon glyphicon-import"></i></button></li>
 	    			</ul>
 				</div>
@@ -132,7 +135,7 @@
 								<span class="sr-only">Toggle dropdown</span>
 							</button>
 							<ul class="dropdown-menu main-dropdown" aria-labelledby="dropdownMenuMain">
-								<li><a href="#">Line and a Pause</a></li>
+								<li><a data="" href="#">Line and a Pause</a></li>
 								<li><a href="#">Input</a></li>
 								<li><a href="#">Number</a></li>
 								<li><a href="#">No pause in line</a></li>

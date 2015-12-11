@@ -33,6 +33,7 @@ app.BrickView = Backbone.View.extend({
 			showGlyphicon.removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
 		}
 		this.$(".panel-body").toggle(500);
+		this.$(".panel-footer").toggle(500);
 		//console.log(this.model.get("show"));
 		//console.log(this.$(".panel-body").html());
 

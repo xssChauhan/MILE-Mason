@@ -6,7 +6,7 @@ app.Brick = Backbone.Model.extend({
 		type: 0,
 		content:'',
 		readonly: true,
-		show : false
+		show : true
 	},
 	toggleShow : function(){
 		this.save({

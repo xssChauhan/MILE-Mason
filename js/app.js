@@ -18,7 +18,6 @@ function readFile(){
 			return function(e){
 			contents =   e.target.result;
 			jsoncontent = JSON.parse(contents);
-			//JSONcontent = JSON.parse(contents);
 			console.log(jsoncontent);
 			app.Lesson.clearLesson();
 			ParseJSON(jsoncontent);
@@ -48,8 +47,10 @@ function ParseJSON(data){
 		else if(typeof(model.content) == 'string'){
 			temp.content = model.content
 		}
-		app.Lesson.add(temp);
+		app.Lesson.create(temp);
 		
 	})
 }
+//Some universal functions that need to be shared by views
+
 
